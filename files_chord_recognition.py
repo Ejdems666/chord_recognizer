@@ -2,7 +2,7 @@ import os
 
 import numpy as np
 
-from hmm2 import compute_chord_for_frame
+from hmm import compute_chord_for_frame
 
 directory = os.getcwd() + '/test_chords/'
 fname = 'Grand Piano - Fazioli - major B middle.wav'

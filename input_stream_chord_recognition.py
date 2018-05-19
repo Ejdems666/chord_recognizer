@@ -1,6 +1,6 @@
 import numpy as np
 import pyaudio
-from hmm2 import compute_chord_for_frame
+from hmm import compute_chord_for_frame
 
 CHUNK = 16384
 FORMAT = pyaudio.paUInt8

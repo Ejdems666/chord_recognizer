@@ -25,8 +25,6 @@ window = tk.Tk()
 window.title("Chords")# Title for the window
 window.geometry("500x400") # Window size
 
-
-
 for n in range(frame_count):
     frame = data[start:start + framing_rate]
     start = start + framing_rate - hop_size

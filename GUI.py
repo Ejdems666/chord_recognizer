@@ -1,4 +1,11 @@
-import tkinter as tk
+from tkinter import *
+
+root = Tk()
+theLabel = Label(root, text="This is too easy")
+theLabel.pack()
+root.mainloop()
+
+'''import tkinter as tk
 
 #Create a window
 window = tk.Tk()
@@ -17,7 +24,6 @@ def ReavealId():
 b = tk.Button(text="What is Jens?", command=ReavealId)
 b.pack()
 
-
 # Start the GUI
 window.mainloop()
-
+'''

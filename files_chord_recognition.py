@@ -1,5 +1,7 @@
 import os
 import tkinter as tk
+
+# added three lines to make compatible with mac
 import matplotlib
 matplotlib.use("TkAgg")
 from matplotlib import pyplot as plt

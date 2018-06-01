@@ -15,7 +15,7 @@ import threading
 
 def chord_recognition():
     directory = os.getcwd() + '/test_chords/'
-    fname = 'output.wav'
+    fname = 'chord_recognition_preview_cable_sound.wav'
 
     (rate, data) = read(directory + fname)
     # framing audio

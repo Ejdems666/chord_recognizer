@@ -1,9 +1,10 @@
 import os
 import tkinter as tk
-import tkinter.scrolledtext
 
 # added three lines to make compatible with mac
 import matplotlib
+
+from GUI import GUI_text_with_scrollbar
 
 matplotlib.use("TkAgg")
 import numpy as np
@@ -32,23 +33,12 @@ def chord_recognition():
         # ideally make the printing function in a separate file and just import it here
         # Chords added in the loop
 
-        textArea.insert(tk.END, chord+"\n")
+        textArea.insert(tk.END, chord + "\n")
         textArea.see(tk.END)
 
 
-
-
 # Create a window
-window = tk.Tk()
-window.title("Chords")  # Title for the window
-window.geometry("250x200")  # Window size
-
-
-container = tk.Frame(window, width=80, height=80)
-textArea = tk.Text(window, height=5, width=10)
-scrollbar = tk.Scrollbar(container)
-scrollbar.pack(side="right", fill="y")
-textArea.pack(side="left", fill="both", expand=True)
+(window, textArea) = GUI_text_with_scrollbar()
 
 Process = threading.Thread(target=chord_recognition)
 Process.start()

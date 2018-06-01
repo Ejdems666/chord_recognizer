@@ -19,9 +19,6 @@ stream = p.open(format=FORMAT,
                 frames_per_buffer=CHUNK,
                 input_device_index=3)
 
-def print_chord(chord):
-    print(chord)
-
 while stream.is_active():
     snippet = []
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):

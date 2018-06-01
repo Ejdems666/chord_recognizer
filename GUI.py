@@ -1,9 +1,9 @@
 from tkinter import *
 
-root = Tk()
-theLabel = Label(root, text="This is too easy")
-theLabel.pack()
-root.mainloop()
+# root = Tk()
+# theLabel = Label(root, text="This is too easy")
+# theLabel.pack()
+# root.mainloop()
 
 '''import tkinter as tk
 
@@ -27,3 +27,16 @@ b.pack()
 # Start the GUI
 window.mainloop()
 '''
+
+
+def GUI_text_with_scrollbar():
+    window = Tk()
+    window.title("Chords")  # Title for the window
+    window.geometry("250x200")  # Window size
+    container = Frame(window, width=80, height=80)
+    textArea = Text(window, height=5, width=10)
+    scrollbar = Scrollbar(container)
+    scrollbar.pack(side="right", fill="y")
+    textArea.pack(side="left", fill="both", expand=True)
+
+    return window, textArea

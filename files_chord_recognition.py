@@ -4,7 +4,7 @@ import tkinter as tk
 # added three lines to make compatible with mac
 import matplotlib
 
-from GUI import GUI_text_with_scrollbar
+from GUI import GUI_text_with_scrollbar, update_text_area
 
 matplotlib.use("TkAgg")
 import numpy as np
@@ -29,18 +29,14 @@ def chord_recognition():
     for n in range(frame_count):
         frame = data[start:start + framing_rate]
         start = start + framing_rate - hop_size
-        chord = compute_chord_for_frame(frame, rate)  # here yoo get the chord, so do some nice printing
-        # ideally make the printing function in a separate file and just import it here
-        # Chords added in the loop
-
-        textArea.insert(tk.END, chord + "\n")
-        textArea.see(tk.END)
+        chord = compute_chord_for_frame(frame, rate)
+        update_text_area(text_area, chord)
 
 
-# Create a window
-(window, textArea) = GUI_text_with_scrollbar()
+(window, text_area) = GUI_text_with_scrollbar()
 
-Process = threading.Thread(target=chord_recognition)
-Process.start()
+chord_recognition_process = threading.Thread(target=chord_recognition)
+chord_recognition_process.start()
 
 window.mainloop()
+chord_recognition_process.join()

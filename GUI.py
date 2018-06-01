@@ -34,7 +34,7 @@ def GUI_text_with_scrollbar():
     window.title("Chords")  # Title for the window
     window.geometry("250x200")  # Window size
     container = Frame(window, width=80, height=80)
-    text_area = Text(window, height=5, width=10)
+    text_area = Text(window, height=5, width=10, font=("Courier", 44))
     scrollbar = Scrollbar(container)
     scrollbar.pack(side="right", fill="y")
     text_area.pack(side="left", fill="both", expand=True)

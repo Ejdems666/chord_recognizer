@@ -14,7 +14,7 @@ def chord_recognition():
     FORMAT = pyaudio.paUInt8
     CHANNELS = 1
     RATE = 44100
-    RECORD_SECONDS = 0.5
+    FRAME_LENGTH = 0.5
     THRESHOLD = 130
 
     p = pyaudio.PyAudio()
@@ -29,14 +29,12 @@ def chord_recognition():
 
     while stream.is_active() and not finish_recognition:
         snippet = []
-        for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        for i in range(0, int(RATE / CHUNK * FRAME_LENGTH)):
             data = stream.read(CHUNK)
             snippet.append(data)
         data = np.frombuffer(b''.join(snippet), dtype=np.uint8)
         if max(data) > THRESHOLD:
             chord = compute_chord_for_frame(data, RATE)
-            # here yoo get the chord, so do some nice printing
-            # ideally make the printing function in a separate file and just import it here
             update_text_area(text_area, chord)
         else:
             update_text_area(text_area, ".")

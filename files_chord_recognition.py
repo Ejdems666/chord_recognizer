@@ -32,7 +32,6 @@ def chord_recognition():
         chord = compute_chord_for_frame(frame, rate)
         update_text_area(text_area, chord)
 
-
 (window, text_area) = GUI_text_with_scrollbar()
 
 chord_recognition_process = threading.Thread(target=chord_recognition)

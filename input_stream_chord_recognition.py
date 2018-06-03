@@ -16,6 +16,7 @@ def chord_recognition():
     RATE = 44100
     FRAME_LENGTH = 0.5
     THRESHOLD = 130
+    INPUT_DEVICE_INDEX = 3 # change this to your own if you're trying to test this
 
     p = pyaudio.PyAudio()
 
@@ -25,7 +26,7 @@ def chord_recognition():
                     input=True,
                     output=False,
                     frames_per_buffer=CHUNK,
-                    input_device_index=3)
+                    input_device_index=INPUT_DEVICE_INDEX)
 
     while stream.is_active() and not finish_recognition:
         snippet = []
